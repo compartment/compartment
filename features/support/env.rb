@@ -61,6 +61,9 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+FactoryGirl.definition_file_paths << File.join(File.dirname(__FILE__), '..', '..', 'spec', 'factories')
+FactoryGirl.find_definitions
+
 module EngineRoutesHelper
   include Compartment::Engine.routes.url_helpers
 end

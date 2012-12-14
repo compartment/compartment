@@ -4,11 +4,11 @@ module Compartment
   class PagesController < ApplicationController
 
     def show
-      @page = @current_site.pages.find_by_url_path(params[:url_path])
-  
-      respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @page }
+      @page = @site.pages.find_by_url_path(request.path_info)
+      if @page
+        render :file => @page.layout_path, layout: false
+      else
+        render 'compartment/errors/page_not_found', :status => 404
       end
     end
     

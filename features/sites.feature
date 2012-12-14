@@ -3,16 +3,16 @@ Feature: Sites
   So that I only have to manage one application.
 
   Scenario: No sites have been created.
-    Given there are no sites in the database
+    Given there are no sites
     When I visit the homepage
     Then I should see "Site Not Found"
 
   Scenario: Sites exist, but wrong domain.
-    Given a site exists with the domain "localhost"
+    Given a site exists with the domain "example2.com"
     When I visit the homepage using the domain "example.com"
     Then I should see "Site Not Found"
 
   Scenario: Site exists, correct domain
-    Given a site exists with the domain "example.com"
-    When I visit the homepage using the domain "example.com"
+    Given a site exists with the domain "example2.com"
+    When I visit the homepage using the domain "example2.com"
     Then I should not see "Site Not Found"

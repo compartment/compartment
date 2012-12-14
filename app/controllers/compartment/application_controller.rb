@@ -6,9 +6,9 @@ module Compartment
     before_filter :find_site_by_domain
 
     def find_site_by_domain
-      @current_site = Site.find_by_domain(request.domain)
-      unless @current_site
-        render 'compartment/errors/unknown_site'
+      @site = Site.find_by_domain(request.domain)
+      unless @site
+        render 'compartment/errors/unknown_site', :status => 404
       end
     end
   end
