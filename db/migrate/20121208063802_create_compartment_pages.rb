@@ -4,7 +4,7 @@ class CreateCompartmentPages < ActiveRecord::Migration
       t.references :site
       t.string :url_path
       t.string :title
-      t.string :layout
+      t.string :template
 
       t.timestamps
     end

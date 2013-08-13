@@ -4,10 +4,11 @@ FactoryGirl.define do
     site
     title 'homepage'
     url_path '/'
+    template 'one_column'
 
     factory :page_with_content do
       after(:create) do |page, evaluator|
-        FactoryGirl.create_list(:content_area, 3, page: page)
+        FactoryGirl.create_list(:content_block, 3, page: page)
       end
     end
   end

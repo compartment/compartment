@@ -1,0 +1,12 @@
+<div class="compartment_form">
+  <p>Total content types: <%= @content_block_types.length %></p>
+
+  <% @content_block_types.each (content_type)->: %>
+    <a href="#" class="option" data-id="<%= content_type.get('name') %>">
+      <p>
+        <%= content_type.get('name') %>: <%= content_type.get('description') %>
+      </p>
+    </a>
+  <% end %>
+
+</div>

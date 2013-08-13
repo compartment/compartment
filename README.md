@@ -17,5 +17,6 @@
 1. Add `gem "compartment"` to your Gemfile and `bundle`
 2. Mount the engine in your routes.rb: `mount Compartment::Engine => "/"`
 3. Install the migrations: `bundle exec rake compartment:install:migrations`
+4. Run the migrations: `bundle exec rake db:migrate`
 4. Start the `rails server` and open the application in your browser.
 5. Complete the setup wizard to create your first site.

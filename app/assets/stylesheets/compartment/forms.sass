@@ -1,0 +1,118 @@
+.compartment_form
+
+  #signup-header
+    background: url(../img/hd-bg.png)
+    padding: 18px 18px 14px 18px
+    border-bottom: 1px solid #CCC
+    border-top-left-radius: 5px
+    -moz-border-radius-topleft: 5px
+    -webkit-border-top-left-radius: 5px
+    border-top-right-radius: 5px
+    -moz-border-radius-topright: 5px
+    -webkit-border-top-right-radius: 5px
+
+    h2
+      color: #444
+      font-size: 2em
+      font-weight: 700
+      margin-bottom: 3px
+      text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5)
+
+    p
+      color: #444
+      font-size: 1.3em
+      margin: 0
+      text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5)
+      text-shadow: none
+
+  .txt-fld
+    position: relative
+    width: 364px
+    padding: 14px 20px
+    border-bottom: 1px solid #EEE
+    text-align: right
+
+    label
+      display: block
+      float: left
+      width: 90px
+      padding-top: 8px
+      color: #222
+      font-size: 1.3em
+      text-align: left
+
+    input
+      width: 244px
+      padding: 8px
+      border-radius: 4px
+      -moz-border-radius: 4px
+      -webkit-border-radius: 4px
+      font-size: 1.2em
+      color: #222
+      background: #F7F7F7
+      font-family: "Helvetica Neue"
+      outline: none
+      border-top: 1px solid #CCC
+      border-left: 1px solid #CCC
+      border-right: 1px solid #E7E6E6
+      border-bottom: 1px solid #E7E6E6
+
+      &.good_input
+        background: #DEF5E1 url(../img/good.png) 236px center no-repeat
+      &.error_input
+        background: #FDE0E0
+
+    input:focus, textarea:focus
+      background-color: #FAF9DC
+
+  .btn-fld
+    width: 254px
+    overflow: hidden
+    padding: 12px 20px 12px 130px
+
+  p.error
+    position: absolute
+    bottom: 48px
+    right: 20px
+    width: 262px
+    color: #FFF
+    font-size: 1.1em
+    padding-bottom: 5px
+    background: url(../img/error-arw.png) 20px bottom no-repeat
+    text-align: left
+    margin: 0
+    text-shadow: none
+
+  p.error span
+    display: inline-block
+    background: #D43636
+    padding: 6px
+    border-radius: 3px
+    -moz-border-radius: 3px
+    -webkit-border-radius: 3px  
+
+  button
+    float: right
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif
+    background: #3F9D4A
+    border: none
+    width: auto
+    overflow: visible
+    font-size: 1.4em
+    color: #FFF
+    padding: 7px 10px
+    border-radius: 4px
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    font-weight: bold
+    text-shadow: 0 1px 0 rgba(0,0,0,0.4)
+
+  .modal_close
+    position: absolute
+    top: 12px
+    right: 12px
+    display: block
+    width: 14px
+    height: 14px
+    background: url(../img/modal_close.png)
+    z-index: 2

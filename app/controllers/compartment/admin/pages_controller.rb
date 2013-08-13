@@ -1,4 +1,4 @@
-require_dependency "compartment/application_controller"
+require_dependency "compartment/admin/application_controller"
 
 module Compartment
   module Admin
@@ -24,6 +24,15 @@ module Compartment
           format.json { render json: @page }
         end
       end
+
+      def toolbar
+        @page = current_site.pages.find(params[:page_id])
+        @new_page = current_site.pages.build
+    
+        respond_to do |format|
+          format.html { render :toolbar, layout: false }
+        end
+      end
     
       # GET /pages/new
       # GET /pages/new.json
@@ -44,11 +53,11 @@ module Compartment
       # POST /pages
       # POST /pages.json
       def create
-        @page = Page.new(params[:page])
+        @page = current_site.pages.build(params[:page])
     
         respond_to do |format|
           if @page.save
-            format.html { redirect_to @page, notice: 'Page was successfully created.' }
+            format.html { redirect_to @page.url_path, notice: 'Page was successfully created.' }
             format.json { render json: @page, status: :created, location: @page }
           else
             format.html { render action: "new" }

@@ -8,11 +8,11 @@ Feature: Sites
     Then I should see "Site Not Found"
 
   Scenario: Sites exist, but wrong domain.
-    Given a site exists with the domain "example2.com"
-    When I visit the homepage using the domain "example.com"
+    Given a site exists with the domain "example2.lvh.me"
+    When I visit the homepage using the domain "example.lvh.me"
     Then I should see "Site Not Found"
 
   Scenario: Site exists, correct domain
-    Given a site exists with the domain "example2.com"
-    When I visit the homepage using the domain "example2.com"
+    Given a site exists with the domain "example2.lvh.me"
+    When I visit the homepage using the domain "example2.lvh.me"
     Then I should not see "Site Not Found"

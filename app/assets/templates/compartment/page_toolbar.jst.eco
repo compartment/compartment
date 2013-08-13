@@ -1,0 +1,6 @@
+<a class="brand" href="#">Compartment</a>
+
+<ul class="nav">
+  <li><a id="new_compartment_page" href="#">New Page</a></li>
+  <li><a href="/auth/logout">Log Out</a></li>
+</ul>

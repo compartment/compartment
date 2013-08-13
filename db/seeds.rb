@@ -1,5 +1,0 @@
-site = Compartment::Site.create!(:domain => 'localhost')
-site.create_theme(:name => 'default')
-page = site.pages.create!(:url_path => '/', :title => 'Homepage')
-content_area = page.content_areas.create!(:name => 'body')
-content_area.content_blocks.create!(:data => 'welcome to the homepage')

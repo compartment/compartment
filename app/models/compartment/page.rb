@@ -1,12 +1,14 @@
 module Compartment
   class Page < ActiveRecord::Base
     belongs_to :site
-    attr_accessible :layout, :title, :url_path
-    validates_uniqueness_of :url_path
-    has_many :content_areas
+    has_many :content_blocks
 
-    def layout_path
-      File.join(site.theme.path, layout)
+    attr_accessible :template, :title, :url_path
+    
+    validates_uniqueness_of :url_path
+
+    def template_path
+      site.theme.path_to_template(template)
     end
   end
 end

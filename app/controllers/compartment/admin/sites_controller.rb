@@ -1,4 +1,4 @@
-require_dependency "compartment/application_controller"
+require_dependency "compartment/admin/application_controller"
 
 module Compartment
   module Admin

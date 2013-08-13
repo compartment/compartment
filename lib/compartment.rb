@@ -1,5 +1,10 @@
-require "compartment/engine"
-require "compartment/config"
+%w{
+  jquery-rails
+  backbone-on-rails
+  bootstrap-sass
+  compartment/config
+  compartment/engine
+}.each { |dependency| require dependency }
 
 module Compartment
   def self.config

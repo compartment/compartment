@@ -1,0 +1,22 @@
+<%= form_for(@content_block, url: admin_content_block_path(@content_block)) do |f| %>
+  <% if @content_block.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@content_block.errors.count, "error") %> prohibited this content_block from being saved:</h2>
+
+      <ul>
+      <% @content_block.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.text_area :data %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

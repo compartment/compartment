@@ -1,3 +1,7 @@
+Given /^the site has pages$/ do
+  FactoryGirl.create(:page, site: @current_site)
+end
+
 Given /^the site does not have any pages$/ do
   @current_site.pages.count.should == 0
 end
@@ -12,9 +16,11 @@ Then /^the page title should be "(.*?)"$/ do |title|
 end
 
 When /^I visit a page$/ do
-  visit page_url(@current_site.pages.first)
+  url = @current_site.pages.first.url_path
+  raise 'Page needs a url_path' if url.nil?
+  visit @current_site.pages.first.url_path
 end
 
 Then /^I should see the admin toolbar$/ do
-  page.should have_content 'Admin Toolbar'
+  find('#compartment_toolbar_iframe')
 end

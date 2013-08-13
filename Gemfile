@@ -3,11 +3,10 @@ source "http://rubygems.org"
 gemspec
 
 gem "sqlite3"
-gem "jquery-rails" # used by the test application
 
 gem "pry"
 
-gem "rspec-rails"
+gem "rspec-rails", "~> 2.12.2"
 gem "factory_girl_rails", "~> 4.0"
 
 group :test do
@@ -15,6 +14,7 @@ group :test do
   gem "cucumber-rails"
   gem "database_cleaner"
   gem "capybara"
+  gem "capybara-webkit"
 end
 
 gem "guard"

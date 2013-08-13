@@ -11,29 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209223603) do
-
-  create_table "compartment_content_areas", :force => true do |t|
-    t.integer  "page_id"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "compartment_content_areas", ["page_id"], :name => "index_compartment_content_areas_on_page_id"
+ActiveRecord::Schema.define(:version => 20121214060141) do
 
   create_table "compartment_content_blocks", :force => true do |t|
-    t.integer  "content_area_id"
+    t.integer  "page_id"
+    t.text     "content_area"
     t.text     "data"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
+
+  add_index "compartment_content_blocks", ["page_id"], :name => "index_compartment_content_blocks_on_page_id"
 
   create_table "compartment_pages", :force => true do |t|
     t.integer  "site_id"
     t.string   "url_path"
     t.string   "title"
-    t.string   "layout"
+    t.string   "template"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -54,5 +48,13 @@ ActiveRecord::Schema.define(:version => 20121209223603) do
   end
 
   add_index "compartment_themes", ["site_id"], :name => "index_compartment_themes_on_site_id"
+
+  create_table "compartment_users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "site_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
 end

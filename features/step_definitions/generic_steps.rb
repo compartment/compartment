@@ -9,3 +9,11 @@ end
 Then /^pry$/ do
   binding.pry
 end
+
+Then /^sleep (.+)$/ do |seconds|
+  sleep seconds.to_i
+end
+
+Then /^I should see a modal$/ do
+  find('.modal')
+end
