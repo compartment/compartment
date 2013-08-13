@@ -1,3 +1,4 @@
+<!--
 # Compartment CMS
 
 ## Installation
@@ -20,3 +21,4 @@
 4. Run the migrations: `bundle exec rake db:migrate`
 4. Start the `rails server` and open the application in your browser.
 5. Complete the setup wizard to create your first site.
+-->
