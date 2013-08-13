@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = Compartment::VERSION
   s.authors     = ["Andrew Havens"]
   s.email       = ["email@andrewhavens.com"]
-  s.homepage    = "https://compartment.github.com"
-  s.summary     = "Ruby CMS"
-  s.description = "Ruby CMS"
+  s.homepage    = "https://compartment.github.io"
+  s.summary     = "Coming Soon"
+  s.description = "Coming Soon"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
