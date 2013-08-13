@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Compartment::VERSION
   s.authors     = ["Andrew Havens"]
   s.email       = ["email@andrewhavens.com"]
-  s.homepage    = "https://compartment.github.io"
+  s.homepage    = "https://github.com/compartment"
   s.summary     = "Coming Soon"
   s.description = "Coming Soon"
 
