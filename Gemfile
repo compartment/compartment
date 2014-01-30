@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 gemspec
 
@@ -6,8 +6,8 @@ gem "sqlite3"
 
 gem "pry"
 
-gem "rspec-rails", "~> 2.12.2"
-gem "factory_girl_rails", "~> 4.0"
+gem "rspec-rails"
+gem "factory_girl_rails"
 
 group :test do
   gem "shoulda-matchers"
@@ -23,3 +23,4 @@ gem "guard-cucumber"
 gem 'rb-inotify', :require => false
 gem 'rb-fsevent', :require => false
 gem 'rb-fchange', :require => false
+gem 'terminal-notifier-guard'

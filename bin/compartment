@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/compartment/cli/base'
+Compartment::CLI::Base.start

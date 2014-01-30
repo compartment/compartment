@@ -1,21 +1,23 @@
 Feature: Pages
-  As a user of the site, I would like to see multiple pages
-  So that I can browse the site.
+  As a visitor
+  I would like a site to have pages
+  So that the website has content
 
   Background:
-    Given a site exists
-    # And the site has a theme
+    Given the default site exists
 
-  Scenario: No pages exist
-    Given the site does not have any pages
+  Scenario: The site has a homepage by default
     When I visit the homepage
-    Then I should see "404: Page not found"
+    Then I should see the default site's homepage
 
-  # @javascript
-  Scenario: Homepage exists
-    Given the site has the following page:
-      | title        | url_path | template   |
-      | the homepage | /        | one_column |
-    When I visit the homepage
-    Then I should not see "404: Page not found"
-    And the page title should be "the homepage" 
+  Scenario: Requesting a page that does not exist
+    When I visit a random page
+    Then I should see the 404 page
+
+  Scenario: Requesting a page that does exist
+    When I visit a random page that exists
+    Then I should see the page
+
+  Scenario: Requesting a page that belongs to a different site
+    When I visit a random page that belongs to a different site
+    Then I should see the 404 page
