@@ -5,8 +5,18 @@ class Compartment.Views.ContentBlock extends Backbone.View
   showTemplate: JST['compartment/content_blocks/show']
   editTemplate: JST['compartment/content_blocks/edit']
 
+  initialize: (options)->
+    console.log 'initialized content block view', @model
+    @editing = false
+
   render: ->
-    @render_show()
+    console.log "rendering content block, editing #{@editing}", @model
+    if @editing
+      @$el.addClass 'editing'
+      @$el.html @editTemplate(content_block: @model)
+    else
+      @$el.removeClass 'editing'
+      @$el.html @showTemplate(content_block: @model)
     @
 
   events:
@@ -20,24 +30,27 @@ class Compartment.Views.ContentBlock extends Backbone.View
   display_actions: -> @$el.find('.actions').show()
   hide_actions:    -> @$el.find('.actions').hide() unless @editing
 
-  render_show: ->
-    @editing = false
-    @$el.removeClass 'editing'
-    @$el.html @showTemplate(content_block: @model)
+  # render_show: ->
+  #   @editing = false
+  #   @$el.removeClass 'editing'
+  #   @$el.html @showTemplate(content_block: @model)
 
-  render_edit: ->
-    @editing = true
-    @$el.addClass 'editing'
-    @$el.html @editTemplate(content_block: @model)
+  # render_edit: ->
+  #   @editing = true
+  #   @$el.addClass 'editing'
+  #   @$el.html @editTemplate(content_block: @model)
 
   edit: ->
-    @render_edit()
+    console.log 'editing called on content block view'
+    @editing = true
+    @render()
     
   save: ->
     @model.set 'data', @$el.find('textarea').val()
     @model.save null,
       success: =>
-        @render_show()
+        @editing = false
+        @render()
       error: (arg1, arg2)->
         console.log 'error:', arg1, arg2
 

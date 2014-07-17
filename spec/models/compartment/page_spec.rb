@@ -2,31 +2,19 @@ require 'spec_helper'
 
 describe Compartment::Page do
 
+  it { should have_many :content_blocks }
   it { should have_attribute :template }
   it { should have_attribute :title }
-  it { should have_attribute :url_path }
+  it { should have_attribute :path }
 
-  it { should validate_uniqueness_of :url_path }
-
-  it { should have_many :content_blocks }
-
-  # describe '#layout_path' do
-  #   let(:theme) { create(:theme) }
-  #   let(:site) { create(:site, theme: theme) }
-  #   let(:page) { create(:page, site: site, layout: 'layout.html') }
-  #   it 'returns the full layout path' do
-  #     page.should_receive(:site).and_return(site)
-  #     site.should_receive(:theme).and_return(theme)
-  #     theme.should_receive(:path).and_return('/example/theme/dir')
-  #     page.layout_path.should == '/example/theme/dir/layout.html'
-  #   end
-  # end
+  it { should validate_presence_of(:site_id) }
+  it { should validate_uniqueness_of(:path).scoped_to(:site_id) }
+  it { should validate_presence_of(:template) }
 
   describe '#template_path' do
-
-    let(:theme) { create(:theme) }
-    let(:site) { create(:site, theme: theme) }
-    let(:page) { create(:page, site: site, template: 'layout.html') }
+    let(:theme) { FactoryGirl.create(:theme) }
+    let(:site) { FactoryGirl.create(:site, theme: theme) }
+    let(:page) { FactoryGirl.create(:page, site: site, template: 'layout.html') }
 
     it 'returns the path to the specified template' do
       page.should_receive(:site).and_return(site)

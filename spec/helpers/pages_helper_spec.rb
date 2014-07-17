@@ -68,24 +68,24 @@ describe Compartment::PagesHelper do
 
   describe '#content_area' do
 
-    context 'when not logged in' do
-      before { not_logged_in }
+    # context 'when not logged in' do
+    #   before { not_logged_in }
 
-      context 'no content blocks' do
-        it 'renders an empty string' do
-          result = helper.content_area('something')
-          result.should == ''
-        end
-      end
-    end
+    #   context 'no content blocks' do
+    #     it 'renders an empty string' do
+    #       result = helper.content_area('something')
+    #       result.should == ''
+    #     end
+    #   end
+    # end
 
-    context 'when logged in' do
-      before { logged_in }
+    # context 'when logged in' do
+    #   before { logged_in }
 
-      it 'wraps each content block with a content area div' do
-        pending 'TODO'
-      end
-    end
+    #   it 'wraps each content block with a content area div' do
+    #     pending 'TODO'
+    #   end
+    # end
 
     # context 'no content areas' do
     #   before do

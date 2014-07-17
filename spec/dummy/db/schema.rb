@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214060141) do
+ActiveRecord::Schema.define(:version => 20140715232106) do
 
   create_table "compartment_content_blocks", :force => true do |t|
     t.integer  "page_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20121214060141) do
 
   create_table "compartment_pages", :force => true do |t|
     t.integer  "site_id"
-    t.string   "url_path"
+    t.string   "path"
     t.string   "title"
     t.string   "template"
     t.datetime "created_at", :null => false
@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(:version => 20121214060141) do
 
   create_table "compartment_sites", :force => true do |t|
     t.string   "domain"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "default",    :default => false
   end
 
   create_table "compartment_themes", :force => true do |t|

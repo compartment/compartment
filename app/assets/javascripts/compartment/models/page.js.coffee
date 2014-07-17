@@ -5,8 +5,12 @@ class Compartment.Models.Page extends Backbone.Model
   # defaults:
   #   content_blocks: []
 
+  # initialize: (options)->
+  #   @content_blocks = new Compartment.Collections.ContentBlocks([], page: @)
+
   constructor: (data, options)->
-    @content_blocks = new Compartment.Collections.ContentBlocks#([], page: @)
+    console.log 'in Page constructor', @
+    @content_blocks = new Compartment.Collections.ContentBlocks([], page: @)
     super(data, options)
 
   parse: (data, options)->
@@ -17,7 +21,7 @@ class Compartment.Models.Page extends Backbone.Model
   newContentArea: (data)->
     data.page_id = @get('id')
     data.content_blocks = @content_blocks.where(content_area: data.name)
-    new Compartment.Models.ContentArea(data, parse: true)
+    new Compartment.Models.ContentArea(data, page: @, parse: true)
 
   initialize: ->
     @content_blocks.page = @

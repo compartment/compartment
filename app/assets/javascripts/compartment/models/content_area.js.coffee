@@ -1,9 +1,12 @@
-# ContentAreas are not persisted on the server, so this model is only used on the client side.
 class Compartment.Models.ContentArea extends Backbone.Model
-  # urlRoot: '/admin/content_area'
+
+  # NOTE: ContentAreas are not persisted on the server, so this model is only used on the client side.
+  sync: ->
+    false
 
   constructor: (data, options)->
-    @content_blocks = new Compartment.Collections.ContentBlocks
+    @page = options.page
+    @content_blocks = new Compartment.Collections.ContentBlocks([], page: @page)
     super(data, options)
 
   parse: (data, options)->

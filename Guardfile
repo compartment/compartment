@@ -1,7 +1,7 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'cucumber', all_on_start: false, cli: '--format pretty' do
+guard 'cucumber', all_on_start: false, all_after_pass: false, cli: '--format pretty' do
   watch(%r{^(features/.+\.feature)$}) { |m| m[1] }
   watch(%r{^features/support/.+$})          { 'features' }
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }

@@ -33,6 +33,7 @@ module Compartment
       end
     
       def update
+        Rails.logger.info "\n\nHELLO\n\n"
         @content_block = current_page.content_blocks.find(params[:id])
         @content_block.update_attributes(params[:content_block])
         respond_with @content_block

@@ -3,7 +3,7 @@ FactoryGirl.define do
   factory :page, :class => Compartment::Page do
     site
     title 'homepage'
-    url_path '/'
+    path '/'
     template 'one_column'
 
     factory :page_with_content do

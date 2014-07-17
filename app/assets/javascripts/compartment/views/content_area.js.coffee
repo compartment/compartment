@@ -1,7 +1,7 @@
 class Compartment.Views.ContentArea extends Backbone.View
 
   events:
-    'click .compartment_content_area_add_content_button': 'displayNewContentBlockModal'
+    'click .compartment_content_area_add_content': 'displayNewContentBlockModal'
     'mouseenter .compartment_content_block_placeholder': 'showPlaceholderActions'
     'mouseleave .compartment_content_block_placeholder': 'hidePlaceholderActions'
 
@@ -12,20 +12,23 @@ class Compartment.Views.ContentArea extends Backbone.View
     @$placeholder = @$el.find('.compartment_content_block_placeholder')
 
   render: ->
-    @content_blocks.each(@addAll, @)
+    @content_blocks.each(@addAll, @) # REVIEW: why doesnt this use addOne?
     if @$placeholder.length
       @$placeholder.append JST['compartment/content_blocks/actions']()
     if @model.get('limit') != 1 or (@content_blocks.length == 0 and @$placeholder.length == 0)
       @$el.append JST['compartment/add_content_button']()
     @
 
+  # REVIEW: why doesnt this use addOne?
   addAll: (content_block) ->
     view = new Compartment.Views.ContentBlock(model: content_block)
     @$el.append view.render().el
 
   addOne: (content_block) ->
+    console.log 'addOne', content_block
     view = new Compartment.Views.ContentBlock(model: content_block)
-    @$el.find('.compartment_content_area_add_content_button').before view.render().el
+    console.log 'content block view', view
+    @$el.find('.compartment_content_area_add_content').before view.render().el
     view.edit()
 
   prepareNewContentBlockModal: ->
@@ -34,12 +37,6 @@ class Compartment.Views.ContentArea extends Backbone.View
     @listenTo @modal, 'selected', @createNewContentBlock
     @modal.render()
 
-  # correctPlaceholderStyles: ->
-  #   $first_child = @$placeholder.find('> *')
-  #   @$placeholder.css
-  #     width: $first_child.width()
-  #     height: $first_child.height()
-
   # for content areas that only allow one content block
   hidePlaceholderActions: -> @$placeholder.find('.actions').hide()
   showPlaceholderActions: ->
@@ -47,11 +44,7 @@ class Compartment.Views.ContentArea extends Backbone.View
     @$placeholder.find('.actions').css(
       width: $first_child.outerWidth()
       height: $first_child.outerHeight()
-      # top: $first_child.css('top')
       top: $first_child[0].offsetTop
-      # right: $first_child.css('right')
-      # bottom: $first_child.css('bottom')
-      # left: $first_child.css('left')
       left: $first_child[0].offsetLeft
     ).show()
 
@@ -60,4 +53,9 @@ class Compartment.Views.ContentArea extends Backbone.View
     @modal.display()
 
   createNewContentBlock: (type)->
+    console.log 'Creating new content block', type
     @content_blocks.add(type: type, content_area: @model.get('name'))
+    # RE-RENDER
+    # enable edit mode on new content block
+    # view = new Compartment.Views.ContentBlock(model: content_block)
+    # view.edit()

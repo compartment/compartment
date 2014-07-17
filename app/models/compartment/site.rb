@@ -4,6 +4,8 @@ module Compartment
     has_many :users
     has_one :theme
     attr_accessible :domain
+    attr_accessible :default
+
     validates_uniqueness_of :domain
 
     def theme

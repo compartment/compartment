@@ -3,9 +3,10 @@ module Compartment
     belongs_to :site
     has_many :content_blocks
 
-    attr_accessible :template, :title, :url_path
+    attr_accessible :path, :template, :title
     
-    validates_uniqueness_of :url_path
+    validates_uniqueness_of :path, scope: :site_id
+    validates_presence_of :template, :site_id
 
     def template_path
       site.theme.path_to_template(template)

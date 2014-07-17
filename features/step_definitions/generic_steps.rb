@@ -6,7 +6,7 @@ Then /^I (should|should not) see "(.*?)"$/ do |should, content|
   end
 end
 
-Then /^pry$/ do
+Then /^(I )pry$/ do |i|
   binding.pry
 end
 

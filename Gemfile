@@ -14,7 +14,10 @@ group :test do
   gem "cucumber-rails"
   gem "database_cleaner"
   gem "capybara"
+  gem 'selenium-webdriver'
   gem "capybara-webkit"
+  gem "aruba"
+  gem "ffaker"
 end
 
 gem "guard"

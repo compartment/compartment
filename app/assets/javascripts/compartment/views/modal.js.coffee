@@ -5,7 +5,7 @@ class Compartment.Views.Modal extends Backbone.View
   $overlay: -> $('#compartment_modal_overlay')
 
   initialize: ->
-    _.bindAll(@)
+    # _.bindAll(@) # TODO: REVIEW
     # make sure only one instance of the overlay has been added to the DOM
     $('<div id="compartment_modal_overlay"></div>').appendTo('body') unless @$overlay().length > 0
     @$overlay().on 'click', @hide
