@@ -1,39 +1,50 @@
-Given /^I am logged in$/ do
+Given /^I am signed in as an admin$/ do
   step 'I have a user account'
-  step 'I visit the login page'
-  step 'I fill out the login form'
+  step 'I visit the sign in page'
+  step 'I fill out the sign in form'
 end
 
-Given /^I have a user account$/ do
+Given /^I am signed in$/ do
+  step 'I am signed in as an admin'
+end
+
+Given /^I have an admin user account$/ do
   @email = 'user@example.com'
   @password = 'password'
-  @current_user = FactoryGirl.create(:user, email: @email, password: @password, site: @current_site)
+  @user = FactoryGirl.create(:user, email: @email, password: @password, site: @site)
 end
 
-Given /^I have the following user:$/ do |table|
-  @email, @password = table.hashes[0][:email], table.hashes[0][:password]
-  @current_user = FactoryGirl.create(:user, email: @email, password: @password, site: @current_site)
+Given(/^I am viewing the sign in page$/) do
+  step 'I visit the sign in page'
 end
 
-When /^I visit the login page$/ do
-  visit admin_login_path
+When /^I visit the sign in page$/ do
+  visit compartment.admin_login_path
 end
 
-When /^I fill out the login form$/ do
-  step "I fill out the login form with \"#{@email}\" and \"#{@password}\""
+When(/^I try to sign in using invalid credentials$/) do
+  fill_in :email, with: 'bad@example.com'
+  fill_in :password, with: 'badpassword'
+  click_button 'Sign in'
 end
 
-Then /^I should see the error "(.*?)"$/ do |error|
-  page.should have_content error
+When(/^I try to sign in using valid credentials$/) do
+  fill_in :email, with: @email
+  fill_in :password, with: @password
+  click_button 'Sign in'
+end
+
+Then(/^I should see an error message that my credentials were incorrect$/) do
+  within '.alert' do
+    page.should have_content 'Invalid email or password'
+  end
+end
+
+Then(/^I should be redirected to the sign in page$/) do
+  page.current_path.should == admin_login_path
 end
 
 Then /^I should be redirected to the admin dashboard$/ do
   page.current_path.should == admin_dashboard_path
   step 'I should see "Dashboard"'
-end
-
-When /^I fill out the login form with "(.*?)" and "(.*?)"$/ do |email, password|
-  fill_in :email, with: email
-  fill_in :password, with: password
-  click_button 'Sign in'
 end
