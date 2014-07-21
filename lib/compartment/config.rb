@@ -2,6 +2,9 @@ module Compartment
   class Config
     attr_accessor :themes_path,
                   :content_blocks_path
+    def logger
+      @logger ||= Rails.logger
+    end
 
     def content_block_types
       @content_block_types ||= []
@@ -12,9 +15,6 @@ module Compartment
         require item
       end
     end
-
-    def registered_themes
-      @registered_themes ||= []
-    end
+    
   end
 end

@@ -1,7 +1,7 @@
 Given /^I am signed in as an admin$/ do
-  step 'I have a user account'
+  step 'I have an admin user account'
   step 'I visit the sign in page'
-  step 'I fill out the sign in form'
+  step 'I fill out the sign in form using valid credentials'
 end
 
 Given /^I am signed in$/ do
@@ -22,13 +22,13 @@ When /^I visit the sign in page$/ do
   visit compartment.admin_login_path
 end
 
-When(/^I try to sign in using invalid credentials$/) do
+When(/^I fill out the sign in form using invalid credentials$/) do
   fill_in :email, with: 'bad@example.com'
   fill_in :password, with: 'badpassword'
   click_button 'Sign in'
 end
 
-When(/^I try to sign in using valid credentials$/) do
+When(/^I fill out the sign in form using valid credentials$/) do
   fill_in :email, with: @email
   fill_in :password, with: @password
   click_button 'Sign in'

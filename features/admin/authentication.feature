@@ -13,10 +13,10 @@ Feature: Admin Authentication
 
   Scenario: Using invalid credentials
     Given I am viewing the sign in page
-    When I try to sign in using invalid credentials
+    When I fill out the sign in form using invalid credentials
     Then I should see an error message that my credentials were incorrect
 
   Scenario: Using valid credentials
     Given I am viewing the sign in page
-    When I try to sign in using valid credentials
+    When I fill out the sign in form using valid credentials
     Then I should be redirected to the admin dashboard

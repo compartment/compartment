@@ -1,14 +1,14 @@
 Given /^the site does not have a theme$/ do
-  @site.theme.destroy if @site.theme
+  @site.theme.should == Compartment::Theme.default
 end
 
 Given /^the site has a theme$/ do
   @site.should_not be_nil
-  @site.theme = FactoryGirl.create :theme
+  @site.theme.should_not be_nil # should have defaulted to the default theme
 end
 
 Given(/^the site has specified a custom theme$/) do
-  @site.theme = FactoryGirl.create :custom_theme
+  @site.theme = 'Custom Theme'
 end
 
 Then(/^I should see the default theme$/) do

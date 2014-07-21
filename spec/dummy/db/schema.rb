@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140715232106) do
+ActiveRecord::Schema.define(:version => 20140718222153) do
 
   create_table "compartment_content_blocks", :force => true do |t|
     t.integer  "page_id"
@@ -36,19 +36,11 @@ ActiveRecord::Schema.define(:version => 20140715232106) do
 
   create_table "compartment_sites", :force => true do |t|
     t.string   "domain"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.boolean  "default",    :default => false
+    t.string   "theme",      :default => "default"
   end
-
-  create_table "compartment_themes", :force => true do |t|
-    t.integer  "site_id"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "compartment_themes", ["site_id"], :name => "index_compartment_themes_on_site_id"
 
   create_table "compartment_users", :force => true do |t|
     t.string   "email"

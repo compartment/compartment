@@ -1,0 +1,6 @@
+<h1>Themes</h1>
+<ul>
+  <% @themes.each do |name, theme| %>
+    <li><%= link_to theme.name, '#' %></li>
+  <% end %>
+</ul>

@@ -2,7 +2,7 @@ module Compartment
   module PagesHelper
 
     def theme_stylesheet_url(file)
-      @page.site.theme.url_to_file("stylesheets/#{file}")
+      @page.site.theme.asset_path("stylesheets/#{file}")
     end
 
     # renders the stylesheet link tags appropriate for the current page

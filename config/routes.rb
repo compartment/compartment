@@ -18,6 +18,7 @@ Compartment::Engine.routes.draw do
       resources :content_blocks
     end
     resources :content_block_types, only: :index
+    resources :themes
   end
 
   get 'assets/themes/:theme_name/*file.:ext' => 'theme_assets#send_asset'

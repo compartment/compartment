@@ -9,7 +9,7 @@ module Compartment
     validates_presence_of :template, :site_id
 
     def template_path
-      site.theme.path_to_template(template)
+      site.theme.template_path(template)
     end
   end
 end

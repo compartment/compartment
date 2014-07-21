@@ -5,7 +5,7 @@ Feature: Theme Administration
 
   Background:
     Given the default site exists
-    And I am logged in as an admin
+    And I am signed in as an admin
 
   Scenario: Viewing a list of available themes
     When I visit the theme administration page
