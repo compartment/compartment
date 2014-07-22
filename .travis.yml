@@ -4,4 +4,5 @@ rvm:
   - rbx-2
 script:
   - RAILS_ENV=test bundle exec rake db:migrate
-  - bundle exec rake
+  - bundle exec rspec
+  - bundle exec cucumber
