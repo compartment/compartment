@@ -8,7 +8,7 @@ Given /^the site has a theme$/ do
 end
 
 Given(/^the site has specified a custom theme$/) do
-  @site.theme = 'Custom Theme'
+  @site.update_attributes!(theme: 'Custom Test Theme')
 end
 
 Then(/^I should see the default theme$/) do
@@ -20,5 +20,5 @@ Then /^I should see the site using the default theme$/ do
 end
 
 Then(/^I should see the custom theme$/) do
-  page.should have_content('custom test theme')
+  page.should have_content('Custom Test Theme')
 end

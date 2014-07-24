@@ -16,6 +16,7 @@ module Compartment
     def current_site
       @current_site ||= Site.find_by_domain(env['SERVER_NAME']) || Site.find_by_default(true)
     end
+    helper_method :current_site
 
   private
 

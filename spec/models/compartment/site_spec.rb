@@ -11,16 +11,22 @@ describe Compartment::Site do
       site.theme.should be_a Compartment::Theme
       site.theme.name.should == 'Compartment Default'
     end
+
+    it 'does not allow you to save an invalid theme' do
+      subject.theme = 'Not a real theme'
+      subject.should_not be_valid
+      subject.errors.full_messages.should include 'Invalid theme identifier'
+    end
   end
 
   describe '#default?' do
     it 'returns boolean value' do
       site = Compartment::Site.create!(default: true)
       site.reload
-      site.default?.should be_true
+      site.default?.should be true
       site.update_attributes(default: false)
       site.reload
-      site.default?.should be_false
+      site.default?.should be false
     end
   end
 end

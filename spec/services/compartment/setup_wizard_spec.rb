@@ -18,7 +18,7 @@ describe Compartment::SetupWizard do
       let(:site){ stub(:site, valid?: false) }
       let(:user){ stub(:user, valid?: false) }
       it 'returns false' do
-        subject.save.should be_false
+        subject.save.should be false
       end
     end
 
@@ -26,7 +26,7 @@ describe Compartment::SetupWizard do
       let(:site){ stub(:site, valid?: true) }
       let(:user){ stub(:user, valid?: false) }
       it 'returns false' do
-        subject.save.should be_false
+        subject.save.should be false
       end
     end
 
@@ -35,7 +35,7 @@ describe Compartment::SetupWizard do
         let(:site){ stub(:site, valid?: true, save: false) }
         let(:user){ stub(:user, valid?: true, save: false) }
         it 'returns false' do
-          subject.save.should be_false
+          subject.save.should be false
         end
       end
 
@@ -43,7 +43,7 @@ describe Compartment::SetupWizard do
         let(:site){ stub(:site, valid?: true, save: true) }
         let(:user){ stub(:user, valid?: true, save: false) }
         it 'returns false' do
-          subject.save.should be_false
+          subject.save.should be false
         end
       end
 
@@ -51,7 +51,7 @@ describe Compartment::SetupWizard do
         let(:site){ stub(:site, valid?: true, save: true) }
         let(:user){ stub(:user, valid?: true, save: true) }
         it 'returns true' do
-          subject.save.should be_true
+          subject.save.should be true
         end
       end
     end

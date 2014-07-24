@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(:version => 20140718222153) do
 
   create_table "compartment_sites", :force => true do |t|
     t.string   "domain"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.boolean  "default",    :default => false
-    t.string   "theme",      :default => "default"
+    t.string   "theme"
   end
 
   create_table "compartment_users", :force => true do |t|

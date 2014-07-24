@@ -9,7 +9,7 @@ Feature: Theme Administration
 
   Scenario: Viewing a list of available themes
     When I visit the theme administration page
-    Then I should see a list of themes
+    Then I see a list of themes
     And I see that my current theme is the default theme
 
   Scenario: Selecting a different theme
