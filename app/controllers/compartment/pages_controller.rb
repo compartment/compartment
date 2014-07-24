@@ -8,7 +8,7 @@ module Compartment
       if @page
         render :file => @page.template_path, layout: false
       else
-        render file: current_site.theme.path_to_template(:page_not_found), status: 404, layout: false
+        render file: current_site.theme.template_path(:page_not_found), status: 404, layout: false
       end
     end
     
