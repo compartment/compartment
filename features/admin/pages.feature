@@ -13,7 +13,6 @@ Feature: Admin Pages
     When I visit the pages admin
     Then I see the list of pages that have been created
 
-  @selenium
   Scenario: Creating a page
     Given I am viewing the pages index
     When I click to create a new page

@@ -34,9 +34,25 @@ describe Compartment::Theme do
 
   describe '#template_path' do
     let(:subject) { Compartment::Theme.default }
-    it 'returns a Pathname object' do
+    it 'returns the filepath to the template' do
       path = subject.template_path('example')
       path.should == "#{subject.base_path}/templates/example"
+    end
+  end
+
+  describe '#asset_url_path' do
+    let(:subject) { Compartment::Theme.default }
+    it 'returns the URL path to the asset' do
+      path = subject.asset_path('example.css')
+      path.should == "/assets/themes/#{subject.name}/example.css"
+    end
+  end
+
+  describe '#asset_filepath' do
+    let(:subject) { Compartment::Theme.default }
+    it 'returns the filepath to the asset' do
+      path = subject.asset_filepath('stylesheets/example.css')
+      path.should == "#{subject.base_path}/stylesheets/example.css"
     end
   end
 
@@ -61,7 +77,9 @@ describe Compartment::Theme do
       templates = subject.templates
       templates.count.should == 2
       templates[0].name.should == 'One Column'
+      templates[0].filename.should == 'one_column'
       templates[1].name.should == 'Two Column'
+      templates[1].filename.should == 'two_column'
     end
   end
 

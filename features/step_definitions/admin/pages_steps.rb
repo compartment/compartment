@@ -24,14 +24,17 @@ When(/^I click to create a new page$/) do
 end
 
 Then(/^I specify the title$/) do
-  fill_in 'Title', with: 'My new page title'
+  @title = 'My new page title'
+  fill_in 'Title', with: @title
 end
 
 When(/^I specify the path$/) do
-  fill_in 'Path', with: '/my-new-page'
+  @path = '/my-new-page'
+  fill_in 'Path', with: @path
 end
 
 Then(/^I specify the template$/) do
+  @template = 'one_column'
   choose 'One Column'
 end
 
@@ -49,7 +52,10 @@ Then(/^I see the list of pages that have been created$/) do
 end
 
 Then(/^the page is created$/) do
-  pending
+  page = Compartment::Page.last
+  page.title.should == @title
+  page.path.should == @path
+  page.template.should == @template
 end
 
 Then(/^I am taken to the page so I can edit it$/) do

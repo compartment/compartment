@@ -45,8 +45,14 @@ module Compartment
       File.join(base_path, 'templates', template)
     end
     
+    # Returns the URL path. Does not validate the existence of the file.
     def asset_path(file)
       "/assets/themes/#{name}/#{file}"
+    end
+
+    # Returns the file path. Does not validate the existence of the file.
+    def asset_filepath(file)
+      File.join(base_path, file)
     end
 
     # def url_to_file(name)
@@ -60,8 +66,9 @@ module Compartment
       Dir.new(File.join(base_path, 'templates')).each do |file|
         unless %w(. ..).include?(file) or file =~ /error_/
           # TODO: maybe parse name/description/icon from YAML front-matter
-          name = file.split('.').first.titleize
-          templates << template.new(name, file)
+          filename = file.split('.').first
+          name = filename.titleize
+          templates << template.new(name, filename)
         end
       end
       templates
