@@ -26,7 +26,7 @@ end
 
 Then(/^the default site is created$/) do
   Compartment::Site.count.should == 1
-  Compartment::Site.first.default?.should be_true
+  Compartment::Site.first.default?.should be true
 end
 
 Then(/^an admin account is created$/) do

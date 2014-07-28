@@ -7,16 +7,23 @@ Feature: Admin Pages
     Given the default site exists
     And I am signed in
 
-  Scenario: Viewing pages index
-    Given I am viewing the admin dashboard
+  Scenario: Viewing pages index page
+    Given I have already created some pages
+    And I am viewing the admin dashboard
     When I visit the pages admin
-    Then I see the pages index
+    Then I see the list of pages that have been created
 
+  @selenium
   Scenario: Creating a page
     Given I am viewing the pages index
     When I click to create a new page
-    And I choose a page title
-    And I choose a page layout
+    And I save the page
+    And I should see "Title can't be blank"
+    Then I should see "Path can't be blank"
+    And I should see "Template can't be blank"
+    And I specify the title
+    When I specify the path
+    And I specify the template
     And I save the page
     Then the page is created
     And I am taken to the page so I can edit it

@@ -7,9 +7,11 @@ describe Compartment::Page do
   it { should have_attribute :title }
   it { should have_attribute :path }
 
+  it { should validate_presence_of(:path) }
+  it { should validate_presence_of(:title) }
+  it { should validate_presence_of(:template) }
   it { should validate_presence_of(:site_id) }
   it { should validate_uniqueness_of(:path).scoped_to(:site_id) }
-  it { should validate_presence_of(:template) }
 
   describe '#template_path' do
     let(:site) { FactoryGirl.create(:site) }

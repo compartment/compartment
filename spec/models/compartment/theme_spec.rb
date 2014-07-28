@@ -54,4 +54,15 @@ describe Compartment::Theme do
   #   end
   # end
 
+  describe '#templates' do
+    let(:subject) { Compartment::Theme.default }
+
+    it 'returns an array of available templates' do
+      templates = subject.templates
+      templates.count.should == 2
+      templates[0].name.should == 'One Column'
+      templates[1].name.should == 'Two Column'
+    end
+  end
+
 end

@@ -10,7 +10,11 @@ Then /^(I )pry$/ do |i|
   binding.pry
 end
 
-Then /^(I )sleep (\d+)$/ do |i, seconds|
+When /^I sleep (\d+)$/ do |seconds|
+  sleep seconds.to_i
+end
+
+Then /^sleep (\d+)$/ do |seconds|
   sleep seconds.to_i
 end
 

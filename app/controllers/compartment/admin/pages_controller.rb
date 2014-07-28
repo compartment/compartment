@@ -57,7 +57,7 @@ module Compartment
     
         respond_to do |format|
           if @page.save
-            format.html { redirect_to @page.url_path, notice: 'Page was successfully created.' }
+            format.html { redirect_to @page.path, notice: 'Page was successfully created.' }
             format.json { render json: @page, status: :created, location: @page }
           else
             format.html { render action: "new" }
@@ -73,7 +73,7 @@ module Compartment
     
         respond_to do |format|
           if @page.update_attributes(params[:page])
-            format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+            format.html { redirect_to @page.path, notice: 'Page was successfully updated.' }
             format.json { head :no_content }
           else
             format.html { render action: "edit" }

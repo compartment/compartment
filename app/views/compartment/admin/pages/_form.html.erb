@@ -12,16 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :url_path %><br />
-    <%= f.text_field :url_path %>
-  </div>
-  <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :layout %><br />
-    <%= f.text_field :layout %>
+    <%= f.label :path %><br />
+    <%= f.text_field :path %>
+  </div>
+  <div class="field">
+    <%= f.label :template %><br />
+    <% current_site.theme.templates.each do |template| %>
+      <label><%= f.radio_button :template, template.filename %> <%= template.name %></label>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

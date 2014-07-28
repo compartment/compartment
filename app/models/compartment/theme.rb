@@ -53,5 +53,19 @@ module Compartment
     #   url + name
     # end
 
+    def templates
+      templates = []
+      # TODO: maybe create an actual class for this
+      template = Struct.new(:name, :filename)
+      Dir.new(File.join(base_path, 'templates')).each do |file|
+        unless %w(. ..).include?(file) or file =~ /error_/
+          # TODO: maybe parse name/description/icon from YAML front-matter
+          name = file.split('.').first.titleize
+          templates << template.new(name, file)
+        end
+      end
+      templates
+    end
+
   end
 end

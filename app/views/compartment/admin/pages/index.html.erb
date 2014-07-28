@@ -2,6 +2,6 @@
 <%= link_to 'New Page', new_admin_page_path, class: 'btn pull-right' %>
 <ul>
   <% @pages.each do |page| %>
-    <li><%= link_to page.title, page.url_path %></li>
+    <li><%= link_to page.title, page.path %></li>
   <% end %>
 </ul>

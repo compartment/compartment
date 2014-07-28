@@ -1,11 +1,15 @@
-Given /^I am signed in as an admin$/ do
-  step 'I have an admin user account'
-  step 'I visit the sign in page'
-  step 'I fill out the sign in form using valid credentials'
-end
-
 Given /^I am signed in$/ do
   step 'I am signed in as an admin'
+end
+
+Given /^I am signed in as an admin$/ do
+  step 'I have an admin user account'
+  step 'I sign in'
+end
+
+Given(/^I am not signed in$/) do
+  step 'I visit the admin dashboard'
+  page.should have_content 'Sign In'
 end
 
 Given /^I have an admin user account$/ do
@@ -32,6 +36,12 @@ When(/^I fill out the sign in form using valid credentials$/) do
   fill_in :email, with: @email
   fill_in :password, with: @password
   click_button 'Sign in'
+end
+
+When(/^I sign in$/) do
+  # assumes we already have a user account
+  step 'I visit the sign in page'
+  step 'I fill out the sign in form using valid credentials'
 end
 
 Then(/^I should see an error message that my credentials were incorrect$/) do
