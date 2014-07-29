@@ -32,7 +32,7 @@ Feature: Admin Pages
     Given I am viewing a new page
     Then I see the admin toolbar
     # TODO: And the page status is displayed as "Unpublished"
-    And I see content areas where I can add content blocks
+    And I should see a content area that I can add content blocks to
 
   # TODO: would be nice to have the ability to publish/stage content
 

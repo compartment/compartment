@@ -72,10 +72,6 @@ Then(/^the page status is displayed as "(.*?)"$/) do |text|
   page.should have_content(text)
 end
 
-Then(/^I see content areas where I can add content blocks$/) do
-  all('.compartment_content_area').count.should be > 0
-end
-
 Then(/^the page should be visible when I log out$/) do
   pending # express the regexp above with the code you wish you had
 end
