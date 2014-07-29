@@ -8,7 +8,8 @@ Given(/^I have already created some pages$/) do
 end
 
 Given(/^I am viewing a new page$/) do
-  pending # express the regexp above with the code you wish you had
+  @page = FactoryGirl.create(:page,  site: @site)
+  visit @page.path
 end
 
 Given(/^I have created a page that is not yet published$/) do
@@ -63,15 +64,16 @@ Then(/^I am taken to the page so I can edit it$/) do
 end
 
 Then(/^I see the admin toolbar$/) do
-  pending # express the regexp above with the code you wish you had
+  find('#compartment_toolbar')
 end
 
-Then(/^the page status is displayed as "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^the page status is displayed as "(.*?)"$/) do |text|
+  # TODO: wrap this in some selector
+  page.should have_content(text)
 end
 
 Then(/^I see content areas where I can add content blocks$/) do
-  pending # express the regexp above with the code you wish you had
+  all('.compartment_content_area').count.should be > 0
 end
 
 Then(/^the page should be visible when I log out$/) do

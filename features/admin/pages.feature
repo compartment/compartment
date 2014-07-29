@@ -27,18 +27,21 @@ Feature: Admin Pages
     Then the page is created
     And I am taken to the page so I can edit it
 
+  @javascript
   Scenario: Viewing a new page
     Given I am viewing a new page
     Then I see the admin toolbar
-    And the page status is displayed as "Unpublished"
+    # TODO: And the page status is displayed as "Unpublished"
     And I see content areas where I can add content blocks
 
-  Scenario: Publishing a page
-    Given I have created a page that is not yet published
-    And I am not signed in
-    When I visit the page
-    Then I should see the 404 page
-    When I sign in
-    And I visit the page
-    And I click to publish the page
-    Then the page should be visible when I log out
+  # TODO: would be nice to have the ability to publish/stage content
+
+  # Scenario: Publishing a page
+  #   Given I have created a page that is not yet published
+  #   And I am not signed in
+  #   When I visit the page
+  #   Then I should see the 404 page
+  #   When I sign in
+  #   And I visit the page
+  #   And I click to publish the page
+  #   Then the page should be visible when I log out
