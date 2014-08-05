@@ -7,7 +7,7 @@ Feature: Admin Content Areas
     Given the default site exists
     And I am signed in
 
-  @javascript
+  @javascript @selenium
   Scenario: Adding content
     Given I am viewing a new page
     Then I should see a content area that I can add content blocks to

@@ -1,5 +1,5 @@
 module Compartment
-  class Theme #< ActiveRecord::Base
+  class Theme
 
     attr_accessor :name, :author
     attr_reader :base_path
@@ -17,25 +17,13 @@ module Compartment
       end
     end
 
-    # used for registering a theme
-    # def self.info
-    #   info = Struct.new(:name, :author).new
-    #   yield(info)
-    #   Compartment.config.registered_themes << info
-    # end
-
     def self.default
-      # Theme.new(name: 'default')
       Compartment.registered_themes['Compartment Default']
     end
 
     def self.find_by_name(name)
       Compartment.registered_themes[name]
     end
-
-    # def filepath
-    #   File.join(Compartment.config.themes_path, name)
-    # end
 
     def template_path(template)
       case template
@@ -54,10 +42,6 @@ module Compartment
     def asset_filepath(file)
       File.join(base_path, file)
     end
-
-    # def url_to_file(name)
-    #   url + name
-    # end
 
     def templates
       templates = []

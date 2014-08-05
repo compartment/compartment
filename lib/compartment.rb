@@ -5,6 +5,7 @@
   compartment/config
   compartment/engine
 }.each { |dependency| require dependency }
+require_relative '../app/models/compartment/content_block'
 
 module Compartment
   def self.config
@@ -17,5 +18,9 @@ module Compartment
 
   def self.registered_themes
     @registered_themes ||= {}
+  end
+
+  def self.registered_content_blocks
+    @registered_content_blocks ||= []
   end
 end

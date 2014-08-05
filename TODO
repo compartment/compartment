@@ -1,31 +1,38 @@
 TODO
 
-To support contributors:
-* Start pushing to GitHub (stop being so secretive)
-* Set up Travis CI
-* Finish cucumber/rspec tests and get them passing
+Done:
+  To support contributors:
+    * Start pushing to GitHub (stop being so secretive)
+    * Set up Travis CI
+    * Finish cucumber/rspec tests and get them passing
+    * Define how to specify custom Content Block metadata
 
-For Rails Engine
-* Refactor admin to allow content blocks on pages based on URL
-* Plan/Implement command line/rails installer setup process
+Content Blocks:
 * Plan/Implement Content Block API
-* Plan/Implement App API
-* Plan/Implement Dashboard (maybe Pages becomes the dashboard)
-* Plan/Implement file/image management App
-* Plan/Implement reuse of main app authentication
-* Plan/Implement global content blocks
+* How to allow dynamic content blocks (i.e. list of blog posts)?
 * Create a Redactor (wysiwyg) content block
 * Create a "one line of text" content block
 * Create a "paragraph of text (not html)" content block
-* Create documentation website (like Rails Guides, Test Kitchen, or Ember.js) and document everything!
-
-For "Go to market"
-* Replace Rails engine with Rack application (or embed a Rails application)
-* Create custom rubygems.org application
-* Plan/Implement Content Block publishing workflow
-* Plan/Implement App publishing workflow, including bundled content blocks
+* Plan/Implement global content blocks
 * Create simple navigation content block
 
-Documentation Needed:
+Admin Area:
+* Plan/Implement App API
+* Plan/Implement file/image management App
+* Plan/Implement Dashboard (maybe Pages becomes the dashboard)
+
+For Rails Engine:
+* Refactor admin to allow content blocks on pages based on URL
+* Plan/Implement command line/rails installer setup process
+* Plan/Implement reuse of main app authentication
+
+For "Go to market":
+* Create custom gem server and site for browsing (like rubygems.org)
+* Plan/Implement Content Block publishing workflow
+* Plan/Implement App publishing workflow, including bundled content blocks
+* Replace Rails engine with Rack application (or embed a Rails application)
+
+Documentation:
+* Create documentation website (like Rails Guides, Test Kitchen, or Ember.js) and document everything!
 * Pages
 * Adding Content

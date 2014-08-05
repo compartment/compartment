@@ -21,8 +21,8 @@ module Compartment
           html = '<script type="text/javascript">'
           html +=   "Compartment.Data.current_page = #{@page.to_json(include: :content_blocks)};\n"
           html +=   "Compartment.Data.content_block_types = [];\n"
-          Compartment.config.content_block_types.each_with_index do |block, i|
-            html +=   "Compartment.Data.content_block_types[#{i}] = #{block.to_json};\n"
+          Compartment.registered_content_blocks.each_with_index do |block, i|
+            html +=   "Compartment.Data.content_block_types[#{i}] = #{block.metadata.to_json};\n"
           end
           html += "</script>"
           scripts << html

@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'compartment_text_block', path: '../compartment_text_block'
+gem 'compartment_html_block', path: '../compartment_html_block'
+
 gem 'sqlite3'
 
 gem 'pry'
