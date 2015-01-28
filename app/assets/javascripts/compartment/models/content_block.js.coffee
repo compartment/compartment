@@ -1,1 +1,0 @@
-class Compartment.Models.ContentBlock extends Backbone.Model

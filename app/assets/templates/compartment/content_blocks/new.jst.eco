@@ -1,6 +1,0 @@
-Available Content Block Types<br>
-<select>
-<% @content_block_types.each (type)-> %>
-  <option value="<%= type.escape('name') %>"><%= type.escape('name') %></option>
-<% end %>
-</select>

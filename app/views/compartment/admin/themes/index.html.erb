@@ -1,8 +1,0 @@
-<h1>Themes</h1>
-<ul>
-  <% @themes.each do |name, theme| %>
-    <li class="<%= 'selected' if theme == current_site.theme %>">
-      <%= link_to name, admin_theme_path(id: name), method: :put %>
-    </li>
-  <% end %>
-</ul>
